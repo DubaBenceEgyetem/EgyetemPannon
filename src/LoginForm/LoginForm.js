@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../LoginForm/LoginForm.css';
+import RegisterForm from '../RegisterForm/RegisterForm';
 
 
 
@@ -20,7 +21,7 @@ const LoginForm = () =>
                     <input placeholder='Email' type='email'></input><br></br>
                     <input placeholder='Jelszó' type='password'></input>
                     <button>Belépés</button>
-                    <a href="/register" class="link">Még nincs fiókod? Regisztrálj</a>
+                    <a href="/register" className="link">Még nincs fiókod? Regisztrálj</a>
                 </div>
             </div>
      

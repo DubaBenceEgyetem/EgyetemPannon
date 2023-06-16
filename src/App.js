@@ -3,6 +3,8 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import LoginForm from '../src/LoginForm/LoginForm';
 import '../src/LoginForm/LoginForm.css';
+import RegisterForm from './RegisterForm/RegisterForm';
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
       <div className={`Wallpaper ${showForm ? 'show' : ''}`}> 
         <div className={`BackgroundOverlay ${showForm ? 'show' : ''}`}>
         <LoginForm/>
+        <RegisterForm/>
         </div>
         </div>
    
