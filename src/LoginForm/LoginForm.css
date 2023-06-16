@@ -61,7 +61,7 @@ button{
     border: none;
     outline: none;
     color: rgb(250, 250, 250);
-    background-color: rgb(5, 182, 10);
+    background-color: rgb(5, 86, 217);
     border-radius: 20px;
     font-size: 20px;
     padding: 10px;
@@ -75,7 +75,7 @@ button{
 button:hover
 {
     color: rgb(255, 253, 253);
-    background-color: rgb(5, 114, 9);
+    background-color: rgb(8, 136, 240);
     -webkit-transition-delay: 0s;
     -moz-transition-delay: 0s;
     -ms-transition-delay: 0s;
