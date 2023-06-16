@@ -1,0 +1,125 @@
+.LoginForm{
+    opacity: 0; /* Kezdetben rejtett állapot */
+     transition: opacity 1s ease;
+    font-size: 30px;
+    padding-top: 20px;
+    background-color: white;
+    width: 500px;
+    height: 450px;
+    text-align: center;
+    border-radius: 20px;
+    font-family: 'Roboto'; 
+
+    
+    
+
+   /*az egesz kozepre*/
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /*kozepre vege*/
+
+}
+
+label
+{
+    font-family: 'Roboto'; 
+}
+
+.LoginForm.show {
+    opacity: 2; /* Animáció befejezésekor megjelenítés */
+  }
+
+.Inside
+{
+    opacity: 0; /* Kezdetben rejtett állapot */
+    transition: opacity 2s ease;
+    margin: 80px;
+}
+
+.Inside.show{
+    opacity: 3;
+}
+
+
+input{
+
+    
+   border-radius: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgb(224, 220, 220);
+    font-size: 25px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+button{
+    border: none;
+    outline: none;
+    color: rgb(250, 250, 250);
+    background-color: rgb(5, 182, 10);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
+    margin-top: 20px;
+    font-weight: bold;
+    
+    
+}
+
+button:hover
+{
+    color: rgb(255, 253, 253);
+    background-color: rgb(5, 114, 9);
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+
+}
+
+input:hover
+{
+    background-color: rgb(237, 239, 241);
+}
+
+input::placeholder
+{
+    font-family: 'Roboto', sans-serif; 
+    font-size: 20px;
+    color:rgb(186, 185, 185) ;
+}
+
+input:focus
+{
+    background: rgb(235, 233, 233);
+    color: black;
+
+}
+input:focus::placeholder
+{
+    color: black;
+
+}
+
+.link{
+    text-align: center;
+    font-family: 'Roboto', sans-serif; 
+    color: rgb(186, 185, 185);
+    display: block;
+    font-size: 15px;
+    margin-top: 55px;
+    text-decoration: none;
+    
+}
+
+.link:hover{
+    color: #514d4d;
+    text-decoration: underline;
+}
