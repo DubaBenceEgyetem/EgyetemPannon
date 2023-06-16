@@ -10,9 +10,6 @@
     border-radius: 20px;
     font-family: 'Roboto'; 
 
-    
-    
-
    /*az egesz kozepre*/
     position: absolute;
     top:0;
@@ -24,10 +21,7 @@
 
 }
 
-label
-{
-    font-family: 'Roboto'; 
-}
+
 
 .LoginForm.show {
     opacity: 2; /* Animáció befejezésekor megjelenítés */
@@ -47,7 +41,6 @@ label
 
 input{
 
-    
    border-radius: 10px;
     border: none;
     outline: none;

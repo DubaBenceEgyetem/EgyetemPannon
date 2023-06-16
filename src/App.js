@@ -2,6 +2,7 @@ import './App.css';
 import React, {userState, useEffect, useState } from 'react';
 import  LoginForm  from '../src/LoginForm/LoginForm';
 import  RegisterForm  from './RegisterForm/RegisterForm';
+import Navbar from './Navbar/Navbar';
 
 
 
@@ -28,6 +29,7 @@ const toggleForm = (formName) => {
     
     <div className={`Wallpaper ${showForm ? 'show' : ''}`}> 
       <div className={`BackgroundOverlay ${showForm ? 'show' : ''}`}>
+        <Navbar/>
         <div>
           {
             currentForm === "login" ? <LoginForm onFormSwitch={toggleForm}/> : <RegisterForm onFormSwitch={toggleForm}/>
