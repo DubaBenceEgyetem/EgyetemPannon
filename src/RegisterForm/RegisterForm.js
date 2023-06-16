@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../LoginForm/LoginForm.css';
+import LoginForm from '../LoginForm/LoginForm';
 
 
-const RegisterForm = () =>
+export const RegisterForm = (props) =>
 {
 
     
@@ -15,15 +16,14 @@ const RegisterForm = () =>
 
 
     return (
-
         <div className={`LoginForm ${showForm ? 'show' : ''}`}>
         <label>Regisztráció</label><br></br>
         <div className={`Inside ${showForm ? 'show' : ''}`}>
-            <input placeholder='Neve' type='text'></input><br></br>
+            <input placeholder='Név' type='text'></input><br></br>
             <input placeholder='Email' type='email'></input><br></br>
             <input placeholder='Jelszó' type='password'></input>
             <button>Regisztráció</button>
-            <a href="/register" className="link">Van már fiókod? Jelentkezz be</a>
+            <a  className="link" onClick={() => props.onFormSwitch('login')}>Van már fiókod? Jelentkezz be</a>
         </div>
     </div>
         

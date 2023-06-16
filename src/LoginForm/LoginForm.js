@@ -4,7 +4,7 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 
 
 
-const LoginForm = () => 
+export const LoginForm = (props) => 
 {
 
     const [showForm, setShowForm] = useState(false);
@@ -21,7 +21,7 @@ const LoginForm = () =>
                     <input placeholder='Email' type='email'></input><br></br>
                     <input placeholder='Jelszó' type='password'></input>
                     <button>Belépés</button>
-                    <a href="/register" className="link">Még nincs fiókod? Regisztrálj</a>
+                    <a  className="link" onClick={() => props.onFormSwitch('register')}>Még nincs fiókod? Regisztrálj</a>
                 </div>
             </div>
      

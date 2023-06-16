@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useEffect, useState } from 'react';
-import LoginForm from '../src/LoginForm/LoginForm';
-import '../src/LoginForm/LoginForm.css';
-import RegisterForm from './RegisterForm/RegisterForm';
+import React, {userState, useEffect, useState } from 'react';
+import  LoginForm  from '../src/LoginForm/LoginForm';
+import  RegisterForm  from './RegisterForm/RegisterForm';
+
+
 
 
 
@@ -16,14 +16,28 @@ function App() {
  
 }, []);
 
+
+const [currentForm, setCurrentForm] = useState('login');
+
+const toggleForm = (formName) => {
+  setCurrentForm(formName);
+}
+
+
   return (
     
-      <div className={`Wallpaper ${showForm ? 'show' : ''}`}> 
-        <div className={`BackgroundOverlay ${showForm ? 'show' : ''}`}>
-        <LoginForm/>
-        <RegisterForm/>
+    <div className={`Wallpaper ${showForm ? 'show' : ''}`}> 
+      <div className={`BackgroundOverlay ${showForm ? 'show' : ''}`}>
+        <div>
+          {
+            currentForm === "login" ? <LoginForm onFormSwitch={toggleForm}/> : <RegisterForm onFormSwitch={toggleForm}/>
+          }
         </div>
-        </div>
+      </div> 
+    </div>
+   
+      
+  
    
   );
 }
