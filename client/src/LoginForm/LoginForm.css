@@ -16,7 +16,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     /*kozepre vege*/
-
 }
 
 
@@ -113,4 +112,10 @@ input:focus::placeholder
 .link:hover{
     color: #514d4d;
     text-decoration: underline;
+}
+
+span{
+    color:red;
+    font-size: 15px;
+    font-style: italic;
 }
