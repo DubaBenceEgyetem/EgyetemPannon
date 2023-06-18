@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import '../LoginForm/LoginForm.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import Validation from './LoginFormVal'
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios' 
 
 
 
@@ -18,6 +21,8 @@ export const LoginForm = (props) =>
       setShowForm(true); // Amikor a komponens betöltődik, beállítjuk a showForm értékét true-ra, hogy elinduljon az animáció
    
   }, []);
+
+    const navigate = useNavigate()
     const [errors, setErrors] = useState({})
     const handleInput = (event) =>
     {
@@ -26,7 +31,20 @@ export const LoginForm = (props) =>
     const handleSubmit = (event) =>
     {
         event.preventDefault()
-        setErrors(Validation(values))
+        const err = (Validation(values))
+      setErrors(err)
+      if(errors.email === "" && errors.password === ""){
+        axios.post('http://localhost:5000/login', values)
+        .then(res => {
+            if(res.data === "Success"){
+                navigate('/home')
+            }
+            else {
+                alert("Hibás adatok")
+            }
+        })
+        .catch(err => console.log(err))
+      }
     } 
 
     return(
@@ -40,8 +58,9 @@ export const LoginForm = (props) =>
                     <input placeholder='Jelszó' type='password' name = 'password' onChange={handleInput} ></input><br></br>
                     {errors.password && <span> {errors.password} </span>}
                     <br></br>
-                    <button type= 'submit'>Belépés</button>
-                    <a  className="link" onClick={() => props.onFormSwitch('register')}>Még nincs fiókod? Regisztrálj</a>
+                    <button type= 'submit'>Belépés</button> <br></br>
+                    <Link to="/register" > Még nincs fiókod? Regisztrálj </Link>
+                    
                 </div>
                 </form>
             </div>

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import '../LoginForm/LoginForm.css';
 import LoginForm from '../LoginForm/LoginForm';
 import Validation from './RegisterFormVal';
+import axios from 'axios' //npm install axios
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export const RegisterForm = (props) =>
@@ -18,7 +21,7 @@ export const RegisterForm = (props) =>
       setShowForm(true); // Amikor a komponens betöltődik, beállítjuk a showForm értékét true-ra, hogy elinduljon az animáció
    
   }, []);
-
+const navigate = useNavigate()
   const [errors, setErrors] = useState({})
   const handleInput = (event) =>
   {
@@ -27,7 +30,15 @@ export const RegisterForm = (props) =>
   const handleSubmit = (event) =>
   {
       event.preventDefault()
-      setErrors(Validation(values))
+      const err = (Validation(values))
+      setErrors(err)
+      if(errors.name === "" && errors.email === "" && errors.password === ""){
+        axios.post('http://localhost:5000/register', values)
+        .then(res => {
+            navigate('/')
+        })
+        .catch(err => console.log(err))
+      }
   } 
 
     return (
@@ -41,8 +52,8 @@ export const RegisterForm = (props) =>
             {errors.email && <span> {errors.email} </span>} <br></br>
             <input placeholder='Jelszó' type='password' name='password' onChange={handleInput} ></input><br></br>
             {errors.password && <span> {errors.password} </span>}<br></br>
-            <button type= 'submit'>Regisztráció</button>
-            <a  className="link" onClick={() => props.onFormSwitch('login')}>Van már fiókod? Jelentkezz be</a>
+            <button type= 'submit'>Regisztráció</button><br></br>
+            <Link to="/" >Van már fiókod? Jelentkezz be</Link>
         </div>
         </form>
     </div>

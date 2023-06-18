@@ -1,8 +1,10 @@
 import './App.css';
 import React, {useEffect, useState } from 'react';
 import  LoginForm  from '../src/LoginForm/LoginForm';
-import  RegisterForm  from './RegisterForm/RegisterForm';
+import  RegisterForm  from '../src/RegisterForm/RegisterForm';
 import Navbar from './Navbar/Navbar';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Home from '../src/Home/Home';
 
 
 function App() {
@@ -24,22 +26,25 @@ function App() {
   }
   
   return (
-    
-    <div className={`Wallpaper ${showForm ? 'show' : ''}`}> 
+     
+  <div className={`Wallpaper ${showForm ? 'show' : ''}`}> 
      <div className={`BackgroundOverlay ${showForm ? 'show' : ''}`}>
         <Navbar/>
-         
-        <div>          {
-            currentForm === "login" ? <LoginForm onFormSwitch={toggleForm}/> : <RegisterForm onFormSwitch={toggleForm}/>
-          }    
-        </div>
+      <BrowserRouter>
+         <Routes>
+              <Route path='/' element={<LoginForm />}></Route>
+              <Route path='/register' element={<RegisterForm/>}></Route>
+              <Route path='/home' element={<Home/>}></Route>
+          </Routes>
+        </BrowserRouter>
       </div> 
     </div>
-   
-      
-  
-   
+
+   //currentForm === "login" ? <LoginForm onFormSwitch={toggleForm}/> : <RegisterForm onFormSwitch={toggleForm}/>
+ 
   );
+
+ 
 }
 
 export default App;
